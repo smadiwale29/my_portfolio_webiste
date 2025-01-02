@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const experiences = [
-        { title: "AI Developer", company: "Adactin", duration: "current", description: "Developed an AI B2B product..." },
-        { title: "Sr. Software Engineer", company: "LTIMindtree", duration: "2 years", description: "Developed ML models..." },
-        { title: "Engineer", company: "GlobalStep", duration: "1.5 years", description: "Designed and implemented ML models..." }
+        { title: "AI Developer", company: "Adactin Group Pty Ltd", duration: "Currently working", description: "Developed an AI-powered B2B product that enables users to upload PDFs and interact with them by simply asking questions or querying the content. With a strong emphasis on security and privacy, the application ensured no data exchange occurred, making it one of the most secure retrieval-augmented generation (RAG) models available. Built with robust security protocols, it provided a safe, private, and efficient way to interact with document content without compromising privacy." },
+        { title: "Sr. Software Engineer", company: "LTIMindtree Limited", duration: "2.3 years", description: "Created an AI-powered solution that helped automate email generation, utilizing advanced language models like LLAMA2 to create tailored content. Designed and implemented a chatbot using OpenAI, improving user interaction by providing quick and accurate responses. Led the development of a Technical Support Assistance Bot powered by Gemini PRO, streamlining support processes and improving efficiency for engineers. Also, built a sentiment analysis model to assess customer feedback and enhance support interactions. Contributed to the advancement of AI solutions by integrating state-of-the-art models and automating internal tasks to improve operational workflows." },
+        { title: "Engineer", company: "GlobalStep LLC.", duration: "1.5 years", description: "Worked on improving machine learning models using tools like Scikit-learn, Keras, NLTK, Matplotlib, Pandas, NumPy, and PyTorch, resulting in accuracy improvements of 40-50%. Took part in team discussions, sharing helpful ideas on how to improve the models and make them work better. Collaborated with others on different projects, making sure everything ran smoothly and efficiently. Helped put models into use by using Flask and Streamlit, supporting the entire process from gathering data to testing the final results." }
     ];
 
     const skills = [
@@ -67,25 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const reviews = [
-        { text: "Great work on the AI project!", author: "Vivek Nikam", designation: "CEO - CodeSpyder" },
-        { text: "Delivered exceptional results.", author: "Samir Nashikkar", designation: "AI Developer - Bio" },
-        { text: "Highly recommended for AI solutions.", author: "Priya Sharma", designation: "CTO" },
-        { text: "Excellent quality and timely delivery.", author: "Arjun Mehta", designation: "Product Manager" }
+        // { text: "Great work on the AI project!", author: "Vivek Nikam", designation: "CEO - CodeSpyder" },
+        // { text: "Delivered exceptional results.", author: "Samir Nashikkar", designation: "AI Developer - Bio" },
+        // { text: "Highly recommended for AI solutions.", author: "Priya Sharma", designation: "CTO" },
+        // { text: "Excellent quality and timely delivery.", author: "Arjun Mehta", designation: "Product Manager" }
     ];
 
     // Populate Experiences
     const experienceList = document.getElementById('experience-list');
-    experiences.forEach(exp => {
-        const expElement = document.createElement('div');
-        expElement.classList.add('experience-card');
-        expElement.innerHTML = `
-            <h2>${exp.title}</h2>
-            <h3>${exp.company}<h3>
-            <p>${exp.duration}</p>
-            <p>${exp.description}</p>
-        `;
-        experienceList.appendChild(expElement);
-    });
+
+experiences.forEach(exp => {
+    const expElement = document.createElement('div');
+    expElement.classList.add('experience-item');
+
+    // Create the inner HTML structure using template literals
+    expElement.innerHTML = `
+        <div class="designation">${exp.title}</div>
+        
+        <div class="experience-line">
+            <div class="organization">${exp.company}</div>
+            <div class="experience">${exp.duration}</div>
+        </div>
+        
+        <div class="description">${exp.description}</div>
+    `;
+    
+    experienceList.appendChild(expElement);
+});
+
 
     // Populate Projects
     const projectList = document.getElementById('project-list');

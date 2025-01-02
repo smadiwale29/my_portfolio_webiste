@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+/* ==============================
+    General Styles
+   ============================== */
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +16,9 @@ body {
     overflow-x: hidden;
 }
 
+/* ==============================
+    Header Section
+   ============================== */
 header {
     position: relative;
     height: 100vh;
@@ -30,42 +36,23 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Places the video behind the content */
+    z-index: -1;
 }
 
 .header-content {
     position: relative;
-    z-index: 1; /* Ensures content stays above the video */
+    z-index: 1;
     color: #fff;
     text-align: center;
 }
 
 .header-content h1 {
-    font-size: 5rem; /* Adjust the size as needed */
+    font-size: 5rem;
 }
 
-header::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0);
-    z-index: 1;
-}
-
-header * {
-    position: relative;
-    z-index: 2;
-}
-
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-    color: #fff;
-}
-
+/* ==============================
+    Typewriter Effect
+   ============================== */
 #typewriter {
     font-size: 2rem;
     color: #fff;
@@ -87,65 +74,99 @@ h1 {
     20% { border-color: #fff; }
 }
 
+/* ==============================
+    Section Styles
+   ============================== */
 section {
     padding: 4rem 2rem;
     scroll-margin-top: 2rem;
 }
 
-.section-header {
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #911515;
-}
-
+/* ==============================
+    About Section
+   ============================== */
 #about {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 auto;
-    max-width: 2000px; /* Optional: adjust the max width */
+    max-width: 1200px;
+    padding: 20px;
+    gap: 20px;
 }
 
 #about .left,
 #about .right {
-    flex: 1; /* Equal flex for left and right sections */
+    flex: 1;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#about .left:hover,
+#about .right:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 #about .left {
-    background-color: #8e2e2e;
+    background: linear-gradient(145deg, #8e2e2e, #b34747);
     color: white;
     text-align: center;
-    border-radius: 10px; /* Optional: rounded corners */
 }
 
 #about .left img {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 1rem;
-    border: 4px solid rgb(11, 11, 11); /* Optional: image border */
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #about .left p {
     font-style: italic;
     margin-top: 1rem;
+    font-size: 18px;
 }
 
 #about .right {
-    background-color: white;
+    background-color: #fff;
     color: #8e2e2e;
-    border-radius: 10px; /* Optional: rounded corners */
+    padding: 30px;
+}
+
+#about .right .info {
+    line-height: 1.8;
 }
 
 #about .right .info p {
     margin-bottom: 1rem;
-    font-size: 24px;
+    font-size: 20px;
 }
 
+#about .right .info p span {
+    font-weight: bold;
+    color: #8e2e2e;
+}
+
+#about .right .info a {
+    color: #b34747;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#about .right .info a:hover {
+    text-decoration: underline;
+    color: #8e2e2e;
+}
+
+/* ==============================
+    Section Headers
+   ============================== */
 .section-header {
     text-align: center;
     font-size: 32px;
@@ -154,27 +175,126 @@ section {
     font-family: 'Arial', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: 2px solid #8e2e2e; /* Optional: Add an underline effect */
-    padding-bottom: 5px; /* Space between text and underline */
-    width: fit-content; /* Makes the width adjust to content */
-    margin: 0 auto 20px auto; /* Centers the element horizontally */
+    border-bottom: 2px solid #8e2e2e;
+    padding-bottom: 5px;
+    width: fit-content;
+    margin: 0 auto 20px auto;
 }
 
-
-#experience-list, #skills-list, #review-list {
+/* ==============================
+    Grid Layout for Lists (Experience, Skills, Reviews)
+   ============================== */
+#skills-list, #review-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
 }
-
-/* Custom Grid for Projects */
-#project-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+#experience-list {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+#experience-list .experience-item {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(246, 244, 244, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#experience-list .experience-item:hover {
+    transform: translateY(-5px); /* Hover effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+#experience-list .experience-item:nth-child(odd) {
+    background-color: #8e2e2e; /* Red background for odd items */
+    color: #fff; /* White text for odd items */
+}
+
+#experience-list .experience-item:nth-child(odd) .designation,
+#experience-list .experience-item:nth-child(odd) .organization,
+#experience-list .experience-item:nth-child(odd) .experience,
+#experience-list .experience-item:nth-child(odd) .description {
+    color: #fff; /* White text for odd item details */
+}
+
+#experience-list .experience-item:nth-child(even) {
+    background-color: #ffffff; /* White background for even items */
+    color: #333; /* Black text for even items */
+}
+
+#experience-list .experience-item:nth-child(even) .designation,
+#experience-list .experience-item:nth-child(even) .organization,
+#experience-list .experience-item:nth-child(even) .experience,
+#experience-list .experience-item:nth-child(even) .description {
+    color: #333; /* Black text for even item details */
+}
+
+#experience-list .experience-item .designation {
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between designation and the next section */
+}
+
+#experience-list .experience-item .organization {
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between orgname and experience */
+}
+
+#experience-list .experience-item .experience {
+    font-size: 20px;
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 10px; /* Space between experience and description */
+}
+
+#experience-list .experience-item .description {
+    font-size: 16px;
+    text-align: justify;
+    margin-bottom: 10px; /* Space between descriptions */
+}
+
+#experience-list .experience-item .experience-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Space between organization, experience line, and description */
+}
+
+#experience-list .experience-item .experience-line .organization,
+#experience-list .experience-item .experience-line .experience {
+    margin: 0; /* Remove any default margin */
+}
+
+/* ==============================
+    Skill Layout Fix
+   ============================== */
+#skills-list {
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+}
+
+/* ==============================
+    Projects Layout Fix
+   ============================== */
+#project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* ==============================
+    Project Cards & Experience Cards
+   ============================== */
 .project-card, .experience-card, .review-card {
     background: #f4f4f4;
     padding: 1rem;
@@ -183,20 +303,22 @@ section {
     margin-bottom: 2rem;
 }
 
-/* Apply alternating color to cards */
 .project-card:nth-child(odd),
 .experience-card:nth-child(odd),
 .review-card:nth-child(odd) {
     background: #8e2e2e;
-    color: #ffffff; /* Ensure text is readable on the darker background */
+    color: #ffffff;
 }
 
 .project-card video {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 
-
+/* ==============================
+    Button Styles
+   ============================== */
 button {
     background-color: #8e2e2e;
     color: white;
@@ -208,45 +330,12 @@ button {
 }
 
 button:hover {
-    background-color: #862929;
+    background-color: #0d0d0d;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #ab2323;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #2a2929;
-    width: 80%;
-    max-width: 700px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
+/* ==============================
+    Skill Bars
+   ============================== */
 .skill {
     margin-bottom: 1.5rem;
     text-align: left;
@@ -266,13 +355,10 @@ button:hover {
     height: 25px;
     overflow: hidden;
 }
-.hidden {
-    display: none;
-}
 
 .skill-progress {
     height: 100%;
-    background-color: #851e1e; /* Change this for dynamic colors */
+    background-color: #851e1e;
     border-radius: 10px 0 0 10px;
     text-align: right;
     color: white;
@@ -283,6 +369,9 @@ button:hover {
     justify-content: flex-end;
 }
 
+/* ==============================
+    Social Links
+   ============================== */
 .social-links {
     display: flex;
     justify-content: center;
@@ -291,34 +380,18 @@ button:hover {
 }
 
 .social-links a {
-    font-size: 2.5rem;
+    margin: 0 10px;
+    font-size: 24px;
     color: #333;
-    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #4CAF50;
+    color: #0073e6;
 }
 
-/* New styles for Read More functionality */
-#full-description {
-    display: none;
-    margin-top: 10px;
-}
-
-#read-more-link {
-    color: blue;
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-/* Ensuring Modals and Videos are properly responsive */
-.modal video {
-    width: 100%;
-    height: auto;
-}
-
-/* Centered Band for Reviews */
+/* ==============================
+    Reviews Section (Scrolling)
+   ============================== */
 #review-band {
     width: 100%;
     overflow: hidden;
@@ -336,7 +409,7 @@ button:hover {
     display: flex;
     gap: 50px;
     white-space: nowrap;
-    animation: scroll-left 35s linear infinite;  /* Adjust speed here (e.g., 25s for slower speed) */
+    animation: scroll-left 35s linear infinite;
 }
 
 .review-card {
@@ -358,48 +431,9 @@ button:hover {
     }
 }
 
-.contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;  /* Adjust the space between items */
-    justify-content: center;
-}
-
-.contact-info p {
-    margin: 0;  /* Remove margin from p tags */
-}
-
-.social-links a {
-    margin: 0 10px;  /* Add spacing between the icons */
-    font-size: 24px;  /* Adjust icon size */
-    color: #333;  /* Set icon color */
-}
-
-.social-links a:hover {
-    color: #0073e6;  /* Change color on hover */
-}
-/* Add Review Button */
-#add-review-btn {
-    position: absolute;
-    right: 20px;
-    top: 5px; /* Adjust this value to add padding from the top */
-    background-color: #8b2518;
-    color: rgb(251, 247, 247);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-
-
-#add-review-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Modal Styles */
+/* ==============================
+    Modal Styles
+   ============================== */
 .modal {
     position: fixed;
     top: 0;
@@ -463,4 +497,190 @@ button:hover {
 #close-modal-btn:hover {
     background-color: #c82333;
 }
+
+/* ==============================
+    Hover Effects for Cards
+   ============================== */
+.project-card:hover, .review-card:hover, .skill:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+/* Review Band Styling */
+#review-band {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Adjusted height for better visual balance */
+    background: #999898;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px; /* Optional: Adds rounded corners for the review band */
+}
+
+#review-list {
+    display: flex;
+    gap: 50px;
+    white-space: nowrap;
+    animation: scroll-left 35s linear infinite;  /* Adjust speed here */
+}
+
+.review-card {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(129, 127, 127, 0.1);
+    text-align: center;
+    min-width: 200px;
+    color: #333;
+    background-color: #f4f4f4; /* Default card background */
+    transition: background-color 0.3s ease;
+}
+
+/* Apply alternating color to cards */
+.review-card:nth-child(odd) {
+    background: #8e2e2e;
+    color: #ffffff;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Review Band Styling */
+#review-band {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Adjusted height for better visual balance */
+    background: #999898;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 10px; /* Optional: Adds rounded corners for the review band */
+}
+
+#review-list {
+    display: flex;
+    gap: 50px;
+    white-space: nowrap;
+    animation: scroll-left 35s linear infinite;  /* Adjust speed here */
+}
+
+.review-card {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(129, 127, 127, 0.1);
+    text-align: center;
+    min-width: 200px;
+    color: #333;
+    background-color: #f4f4f4; /* Default card background */
+    transition: background-color 0.3s ease;
+}
+
+/* Apply alternating color to cards */
+.review-card:nth-child(odd) {
+    background: #8e2e2e;
+    color: #ffffff;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Add Review Button Positioned Within the Review Band */
+#add-review-btn {
+    position: absolute; /* Changed from fixed to absolute positioning */
+    top: 10px; /* Distance from the top of the review band */
+    right: 20px; /* Distance from the right edge of the review band */
+    background-color: #8b2518;
+    color: rgb(251, 247, 247);
+    border: none;
+    border-radius: 50%;
+    width: 60px; /* Slightly larger for better visibility */
+    height: 60px;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure the button stays on top of review cards */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#add-review-btn:hover {
+    background-color: #862929;
+    transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+#add-review-btn:focus {
+    outline: none; /* Removes the focus outline on click */
+}
+
+/* Initially hide the full description */
+.project-description .full-description {
+    display: none;
+}
+
+/* Style for Read More button */
+.read-more-btn {
+    background-color: #8e2e2e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #0d0d0d;
+}
+/* Hidden class for full description */
+.hidden {
+    display: none;
+}
+
+/* Full description styling */
+.full-description {
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+/* Red background with white text */
+.red-background {
+    background-color: red;
+    color: white;
+}
+
+/* White background with red text */
+.white-background {
+    background-color: white;
+    color: red;
+}
+
+/* Text color styles */
+.white-text {
+    color: white;
+}
+
+.red-text {
+    color: red;
+}
+
 
