@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saurabh Madiwale's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <!-- Video Background -->
+        <video autoplay muted loop id="background-video">
+            <source src="static/background 2.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Header Content -->
+        <div class="header-content">
+            <h1>Saurabh Jayant Madiwale</h1>
+            <div id="typewriter"></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="left">
+                <img src="saurabh_madiwale.jpg" alt="Saurabh Madiwale">
+                <p>"Dedicated to delivering excellence in every project."</p>
+            </div>
+            <div class="right">
+                <div class="info">
+                    <p><strong>Name:</strong> Saurabh Madiwale</p>
+                    <p><strong>Birthdate:</strong> 3rd May 1998</p>
+                    <p><strong>Degree:</strong> BTech in Mechatronics</p>
+                    <p><strong>Experience:</strong> 4 Years</p>
+                    <p><strong>Phone:</strong> +91 8446622034</p>
+                    <p><strong>Email:</strong> <a href="mailto:smadiwale29@gmail.com">smadiwale29@gmail.com</a></p>
+                </div>
+            </div>
+        </section>        
+
+        <section id="experience">
+            <h2 class="section-header">Experience</h2>
+            <div id="experience-list"></div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-header">Projects</h2>
+            <div id="project-list"></div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-header">Skills</h2>
+            <div id="skills-list"></div>            
+        </section>
+
+        <section id="reviews">
+            <h2 class="section-header">Reviews</h2>
+            <div id="review-band">
+                <button id="add-review-btn">+</button>
+                <div id="review-list"></div>
+            </div>
+        </section>
+        
+        <!-- Modal for Adding Review -->
+        <div id="review-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Add a Review</h3>
+                <textarea id="review-text" placeholder="Enter your review"></textarea>
+                <input id="review-author" type="text" placeholder="Your Name">
+                <input id="review-designation" type="text" placeholder="Your Designation">
+                <button id="save-review-btn">Save</button>
+                <button id="close-modal-btn">Close</button>
+            </div>
+        </div>
+        
+
+        <section id="contact">
+            <h2 class="section-header">Contact</h2>
+            
+                    
+            <!-- Social Media Links -->
+        <div class="social-links" style="text-align: center;">
+            <a href="https://wa.me/+918446622034" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:smadiwale29@gmail.com" title="Send an Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/saurabh-madiwale-487943184" target="_blank" title="Visit my LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/smadiwale29" target="_blank" title="Visit my GitHub Profile"><i class="fab fa-github"></i></a>
+            <a href="https://instagram.com/your-instagram-profile" target="_blank" title="Visit my Instagram Profile"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/your-twitter-profile" target="_blank" title="Visit my Twitter Profile"><i class="fab fa-twitter"></i></a>
+        </div>
+           
+
+    <script src="script.js"></script>
+</body>
+</html>
