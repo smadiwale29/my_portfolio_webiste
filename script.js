@@ -67,34 +67,32 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const reviews = [
-        // { text: "Great work on the AI project!", author: "Vivek Nikam", designation: "CEO - CodeSpyder" },
-        // { text: "Delivered exceptional results.", author: "Samir Nashikkar", designation: "AI Developer - Bio" },
-        // { text: "Highly recommended for AI solutions.", author: "Priya Sharma", designation: "CTO" },
-        // { text: "Excellent quality and timely delivery.", author: "Arjun Mehta", designation: "Product Manager" }
+        { text: "Great work on the AI project!", author: "Vivek Nikam", designation: "CEO - CodeSpyder" },
+        { text: "Delivered exceptional results.", author: "Samir Nashikkar", designation: "AI Developer - BioQuest" },
+        { text: "Highly recommended for AI solutions.", author: "Priya Sharma", designation: "CTO" },
+        { text: "Excellent quality and timely delivery.", author: "Arjun Mehta", designation: "Product Manager" }
     ];
 
     // Populate Experiences
     const experienceList = document.getElementById('experience-list');
 
-experiences.forEach(exp => {
-    const expElement = document.createElement('div');
-    expElement.classList.add('experience-item');
+    experiences.forEach(exp => {
+        const expElement = document.createElement('div');
+        expElement.classList.add('experience-item');
 
-    // Create the inner HTML structure using template literals
-    expElement.innerHTML = `
-        <div class="designation">${exp.title}</div>
+        expElement.innerHTML = `
+            <div class="designation">${exp.title}</div>
+            
+            <div class="experience-line">
+                <div class="organization">${exp.company}</div>
+                <div class="experience">${exp.duration}</div>
+            </div>
+            
+            <div class="description">${exp.description}</div>
+        `;
         
-        <div class="experience-line">
-            <div class="organization">${exp.company}</div>
-            <div class="experience">${exp.duration}</div>
-        </div>
-        
-        <div class="description">${exp.description}</div>
-    `;
-    
-    experienceList.appendChild(expElement);
-});
-
+        experienceList.appendChild(expElement);
+    });
 
     // Populate Projects
     const projectList = document.getElementById('project-list');
@@ -174,6 +172,23 @@ experiences.forEach(exp => {
         if (text && author && designation) {
             const newReview = { text, author, designation };
             reviews.push(newReview);
+
+            // Send review to backend
+            fetch('/save-review', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newReview)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Review saved successfully', data);
+            })
+            .catch(error => {
+                console.error('Error saving review:', error);
+            });
+
             addReviewToDOM(newReview);
 
             reviewText.value = '';
