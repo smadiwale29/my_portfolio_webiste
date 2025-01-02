@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviews = [
         { text: "Great work on the AI project!", author: "Vivek Nikam", designation: "CEO - CodeSpyder" },
         { text: "Delivered exceptional results.", author: "Samir Nashikkar", designation: "AI Developer - BioQuest" },
-        { text: "Highly recommended for AI solutions.", author: "Priya Sharma", designation: "CTO" },
-        { text: "Excellent quality and timely delivery.", author: "Arjun Mehta", designation: "Product Manager" }
+        // { text: "Highly recommended for AI solutions.", author: "Priya Sharma", designation: "CTO" },
+        // { text: "Excellent quality and timely delivery.", author: "Arjun Mehta", designation: "Product Manager" }
     ];
 
     // Populate Experiences
